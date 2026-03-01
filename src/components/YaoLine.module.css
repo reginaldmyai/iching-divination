@@ -1,0 +1,58 @@
+.yaoLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    height: 24px;
+    margin: 6px 0;
+    position: relative;
+}
+
+.yaoSegment {
+    height: 8px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+}
+
+/* Yang (solid line) ⚊ */
+.yang .yaoSegment {
+    width: 100%;
+    background: var(--gold);
+    box-shadow: 0 0 8px rgba(212, 168, 83, 0.3);
+}
+
+/* Yin (broken line) ⚋ */
+.yin {
+    gap: 12px;
+}
+
+.yin .yaoSegment {
+    width: calc(50% - 6px);
+    background: var(--gold);
+    box-shadow: 0 0 8px rgba(212, 168, 83, 0.3);
+}
+
+/* Changing (old) lines - pulsing */
+.changing .yaoSegment {
+    background: var(--crimson-light);
+    box-shadow: 0 0 12px rgba(192, 53, 74, 0.4);
+    animation: pulse-gold 1.5s infinite;
+}
+
+.yaoLabel {
+    position: absolute;
+    right: -36px;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* Animated entrance */
+.animated {
+    animation: drawLine 0.5s ease forwards;
+    overflow: hidden;
+}
+
+.animated .yaoSegment {
+    min-width: 0;
+}

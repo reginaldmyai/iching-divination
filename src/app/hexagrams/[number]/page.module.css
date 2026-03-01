@@ -1,0 +1,142 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-top: var(--space-lg);
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    padding-top: 30vh;
+    color: var(--text-muted);
+}
+
+.header {
+    text-align: center;
+    padding: var(--space-lg) 0;
+}
+
+.symbol {
+    font-size: 4.5rem;
+    filter: drop-shadow(0 0 16px rgba(212, 168, 83, 0.4));
+    display: block;
+    margin-bottom: var(--space-md);
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+}
+
+.nameEn {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+}
+
+.section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+}
+
+.guaCi {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.8;
+}
+
+.text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.trigramRow {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.trigramBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.trigramLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.trigramName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.trigramAttr {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.yaoItem {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.yaoItem:last-child {
+    border-bottom: none;
+}
+
+.yaoCi {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: var(--space-xs);
+}
+
+.xiangText {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.jieDu {
+    margin-top: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(212, 168, 83, 0.04);
+    border-left: 2px solid var(--gold-dark);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.jieDu p {
+    margin: 0 0 0.3em;
+}
+
+.nav {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: var(--space-lg);
+}
+
+.nav .btn {
+    font-size: 0.85rem;
+}

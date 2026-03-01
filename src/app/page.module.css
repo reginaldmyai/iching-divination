@@ -1,141 +1,113 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
-.main {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
+.container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  gap: var(--space-xl);
+  padding-top: var(--space-lg);
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+/* Hero */
+.hero {
+  text-align: center;
+  padding: var(--space-2xl) 0 var(--space-lg);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
+.heroSymbol {
+  font-size: 5rem;
+  margin-bottom: var(--space-md);
+  filter: drop-shadow(0 0 20px rgba(212, 168, 83, 0.4));
+  animation: pulse-gold 3s infinite;
+}
+
+.heroTitle {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-sm);
+}
+
+.heroSub {
   color: var(--text-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
+/* CTA */
+.ctaBtn {
   display: flex;
-  flex-direction: row;
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+  font-size: 1.2rem;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-xl);
 }
 
-.ctas a {
+/* Daily desc */
+.dailyDesc {
+  margin-top: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding: 0 var(--space-xs);
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.featureCard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  text-align: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.featureCard:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.featureIcon {
+  font-size: 2rem;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.featureLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold);
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.featureDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+/* Quote */
+.quote {
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
 
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.quote blockquote {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 2;
+  letter-spacing: 0.1em;
+  font-style: italic;
+  border-left: 3px solid var(--gold-dark);
+  padding-left: var(--space-md);
+  display: inline-block;
+  text-align: left;
 }

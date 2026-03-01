@@ -1,0 +1,175 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-top: var(--space-lg);
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    padding-top: 30vh;
+    color: var(--text-muted);
+}
+
+.question {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Hex card */
+.hexSection {
+    text-align: center;
+}
+
+.label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+}
+
+.hexCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.symbol {
+    font-size: 4rem;
+    margin-bottom: var(--space-md);
+    filter: drop-shadow(0 0 12px rgba(212, 168, 83, 0.4));
+}
+
+.hexName {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+}
+
+.hexEn {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.trigrams {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Yao section */
+.yaoSection {
+    margin-bottom: 0;
+}
+
+.yaoBox {
+    max-width: 240px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.yaoRow {
+    padding: 2px 0;
+}
+
+.changingNote {
+    text-align: center;
+    margin-top: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--crimson-light);
+}
+
+/* Text sections */
+.textSection {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+}
+
+.guaCi {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+}
+
+.subTitle {
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-bottom: var(--space-xs);
+    margin-top: var(--space-md);
+}
+
+.text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Yao text items */
+.yaoTextItem {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.yaoTextItem:last-child {
+    border-bottom: none;
+}
+
+.changingYao {
+    background: rgba(192, 53, 74, 0.08);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    border-left: 3px solid var(--crimson-light);
+    margin: var(--space-xs) 0;
+}
+
+.yaoCi {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: var(--space-xs);
+}
+
+.xiangText {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Changed section */
+.changedSection .hexCard {
+    background: linear-gradient(135deg, rgba(139, 32, 53, 0.1), var(--bg-card));
+    border-color: rgba(192, 53, 74, 0.3);
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.actions .btn {
+    flex: 1;
+}

@@ -3,7 +3,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDivinationStore } from '@/stores/useDivinationStore';
 import { tossCoin, interpretCast } from '@/lib/divination';
-import { getHexagramByNumber, formatHexagram } from '@/data/hexagrams';
+import { getHexagramByNumber } from '@/lib/hexagramService';
 import YaoLine from '@/components/YaoLine';
 import styles from './page.module.css';
 
@@ -33,9 +33,10 @@ export default function DivinationPage() {
         const newValues = [...store.yaoValues, value];
         if (newValues.length === 6) {
             const result = interpretCast(newValues);
-            const hex = formatHexagram(getHexagramByNumber(result.hexagramNumber));
+            // 從 Supabase 非同步取得卦象資料
+            const hex = await getHexagramByNumber(result.hexagramNumber);
             const changed = result.changedHexagramNumber
-                ? formatHexagram(getHexagramByNumber(result.changedHexagramNumber))
+                ? await getHexagramByNumber(result.changedHexagramNumber)
                 : null;
             setTimeout(() => {
                 store.setResult({

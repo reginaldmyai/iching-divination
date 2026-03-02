@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { getDailyHexagramNumber } from '@/lib/divination';
-import { getHexagramByNumber, formatHexagram } from '@/data/hexagrams';
+import { getHexagramByNumber } from '@/lib/hexagramService';
 import HexagramCard from '@/components/HexagramCard';
 import styles from './page.module.css';
 
@@ -10,10 +10,13 @@ export default function HomePage() {
   const [daily, setDaily] = useState(null);
 
   useEffect(() => {
-    const today = new Date().toISOString().slice(0, 10);
-    const num = getDailyHexagramNumber(today);
-    const hex = formatHexagram(getHexagramByNumber(num));
-    setDaily(hex);
+    async function loadDaily() {
+      const today = new Date().toISOString().slice(0, 10);
+      const num = getDailyHexagramNumber(today);
+      const hex = await getHexagramByNumber(num);
+      setDaily(hex);
+    }
+    loadDaily();
   }, []);
 
   return (

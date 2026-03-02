@@ -1,15 +1,28 @@
 'use client';
-import { use } from 'react';
-import { getHexagramByNumber, formatHexagram } from '@/data/hexagrams';
-import { hexagramNumberToBinary, getUpperTrigram, getLowerTrigram, getTrigramInfo } from '@/lib/divination';
+import { use, useEffect, useState } from 'react';
+import { getHexagramByNumber } from '@/lib/hexagramService';
+import { getUpperTrigram, getLowerTrigram, getTrigramInfo } from '@/lib/divination';
 import Link from 'next/link';
 import styles from './page.module.css';
 
 export default function HexagramDetailPage({ params }) {
     const { number } = use(params);
     const num = parseInt(number);
-    const raw = getHexagramByNumber(num);
-    const hex = formatHexagram(raw);
+    const [hex, setHex] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function load() {
+            const data = await getHexagramByNumber(num);
+            setHex(data);
+            setLoading(false);
+        }
+        load();
+    }, [num]);
+
+    if (loading) {
+        return <div className={styles.empty}><p>載入中...</p></div>;
+    }
 
     if (!hex) {
         return (
@@ -84,7 +97,7 @@ export default function HexagramDetailPage({ params }) {
             )}
 
             {/* Yao Texts */}
-            {hex.yao_texts.length > 0 && (
+            {hex.yao_texts && hex.yao_texts.length > 0 && (
                 <section className={`${styles.section} fade-in-delay-3`}>
                     <h2 className="section-title">爻辭</h2>
                     {hex.yao_texts.map(y => (

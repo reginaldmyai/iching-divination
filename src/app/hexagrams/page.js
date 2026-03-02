@@ -1,12 +1,22 @@
 'use client';
-import { useState, useMemo } from 'react';
-import { getAllHexagrams, formatHexagram } from '@/data/hexagrams';
+import { useState, useEffect, useMemo } from 'react';
+import { getAllHexagrams } from '@/lib/hexagramService';
 import HexagramCard from '@/components/HexagramCard';
 import styles from './page.module.css';
 
 export default function HexagramsPage() {
     const [search, setSearch] = useState('');
-    const allHex = useMemo(() => getAllHexagrams().map(formatHexagram), []);
+    const [allHex, setAllHex] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function load() {
+            const data = await getAllHexagrams();
+            setAllHex(data);
+            setLoading(false);
+        }
+        load();
+    }, []);
 
     const filtered = useMemo(() => {
         if (!search.trim()) return allHex;
@@ -27,13 +37,19 @@ export default function HexagramsPage() {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
             />
-            <div className={styles.grid}>
-                {filtered.map(h => (
-                    <HexagramCard key={h.number} hexagram={h} variant="mini" />
-                ))}
-            </div>
-            {filtered.length === 0 && (
-                <p className={styles.empty}>找不到符合的卦象</p>
+            {loading ? (
+                <p className={styles.empty}>載入中...</p>
+            ) : (
+                <>
+                    <div className={styles.grid}>
+                        {filtered.map(h => (
+                            <HexagramCard key={h.number} hexagram={h} variant="mini" />
+                        ))}
+                    </div>
+                    {filtered.length === 0 && (
+                        <p className={styles.empty}>找不到符合的卦象</p>
+                    )}
+                </>
             )}
         </div>
     );
